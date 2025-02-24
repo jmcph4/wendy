@@ -9,8 +9,8 @@ enum type { VOID, INT, BOOL, STRING };
 struct arg { char* name; enum type type; };
 struct var { char* name; enum type type; };
 
-struct expr_arith_op { char op; struct expr* lhs; struct expr* rhs; };
-struct expr_logic_op { char op; struct expr* lhs; struct expr* rhs; };
+struct expr_arith_op { char* op; struct expr* lhs; struct expr* rhs; };
+struct expr_logic_op { char* op; struct expr* lhs; struct expr* rhs; };
 struct expr_int { uint64_t val; };
 struct expr_bool { bool val; };
 struct expr_string { char* val; };
@@ -23,6 +23,7 @@ struct expr {
         EXPR_LOGIC_OP,
         EXPR_INTEGER,
         EXPR_STRING,
+        EXPR_BOOLEAN,
         EXPR_VARIABLE,
         EXPR_CALL
     } type;
